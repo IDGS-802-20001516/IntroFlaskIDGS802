@@ -13,7 +13,7 @@ def alumnos():
         apa=''
         correo=''
         alumn_form=forms.UserForm(request.form)
-        if request.method=="POST":
+        if request.method=="POST" and alumn_form.validate():
                 nom=alumn_form.nombre.data
                 apa=alumn_form.apaterno.data
                 correo=alumn_form.email.data
@@ -85,6 +85,7 @@ def multiplica():
         num2=request.form.get("n2")
         
         return "<h1>El resultado es: {}</h1>".format(int(num1)*int(num2))
+
 
 if __name__=="__main__":
     app.run(debug=True)
