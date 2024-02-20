@@ -1,9 +1,10 @@
 {% extends 'layout2.html' %}
 {% block content %}
 {% import "_macros.html" as macros %}
-
     <h1>Alumnos</h1>
     <form action="" method="post">
+        {{form.csrf_token}}
+        <input type="hidden" name="csrf" value="{{csrf_token}}"/>
         {{macros.input_form(form.nombre,class="form-control")}}
         {{macros.input_form(form.apaterno,class="form-control")}}
         {{macros.input_form(form.email,class="form-control")}}
